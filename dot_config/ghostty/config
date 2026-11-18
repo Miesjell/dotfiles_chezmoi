@@ -1,0 +1,79 @@
+# This is the configuration file for Ghostty.
+#
+# This template file has been automatically created at the following
+# path since Ghostty couldn't find any existing config files on your system:
+#
+#
+# The template does not set any default options, since Ghostty ships
+# with sensible defaults for all options. Users should only need to set
+# options that they want to change from the default.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
+#
+# Ghostty can reload the configuration while running by using the menu
+# options or the bound key (default: Command + Shift + comma on macOS and
+# Control + Shift + comma on other platforms). Not all config options can be
+# reloaded while running; some only apply to new windows and others may require
+# a full restart to take effect.
+
+command = /usr/bin/fish
+copy-on-select = clipboard 
+clipboard-write = allow
+
+# ---------- Clipboard ----------
+# Selection goes to both PRIMARY and the system clipboard
+copy-on-select = clipboard
+# Lets zellij/nvim copy via OSC 52 without prompting
+clipboard-write = allow
+
+# ---------- Comfort ----------
+mouse-hide-while-typing = true
+# Closing the window only detaches zellij; nothing is lost
+confirm-close-surface = false
+window-padding-x = 4
+window-padding-y = 2
+
+keybind = clear
+keybind = ctrl+shift+c=copy_to_clipboard
+keybind = ctrl+shift+v=paste_from_clipboard
+keybind = shift+insert=paste_from_selection
+keybind = ctrl+equal=increase_font_size:1
+keybind = ctrl+minus=decrease_font_size:1
+keybind = ctrl+digit_0=reset_font_size
+keybind = ctrl+shift+n=new_window
+keybind = ctrl+shift+comma=reload_config
+
+background-blur = macos-glass-regular
+background-opacity = 0.9
+background-opacity-cells = true
+cursor-color = cell-foreground
+cursor-opacity = 0.75
+cursor-style = block_hollow
+cursor-text = cell-foreground
+palette = 2=#FF94CA
+palette = 4=#8E66EF
+palette = 10=#FF3EF9
+palette = 12=#6132F5
+# theme = Purplepeter
+
+theme = Cyberpunk
+# custom-shader = ~/.config/ghostty/shaders/glitchy.glsl
+# custom-shader = ~/.config/ghostty/shaders/tft.glsl
+# custom-shader = ~/.config/ghostty/shaders/cracked_glass.glsl
+
+# custom-shader = ~/.config/ghostty/shaders/bloom.glsl
+# custom-shader = ~/.config/ghostty/shaders/drunkard.glsl
+# custom-shader = ~/.config/ghostty/shaders/spotlight.glsl
+# custom-shader = ~/.config/ghostty/shaders/auto-tracking-spotlight
+# custom-shader = ~/.config/ghostty/shaders/cursor_lightning.glsl
+# custom-shader = ~/.config/ghostty/shaders/matrix-hallway.glsl
+# custom-shader = ~/.config/ghostty/shaders/water.glsl
+# custom-shader = ~/.config/ghostty/shaders/sin-interference.glsl
+# custom-shader = ~/.config/ghostty/shaders/gears-and-belts.glsl
+# custom-shader = ~/.config/ghostty/shaders/starfield.glsl
+# custom-shader = ~/.config/ghostty/shaders/a_shader.glsl
+

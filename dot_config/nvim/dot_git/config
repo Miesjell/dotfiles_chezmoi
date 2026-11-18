@@ -1,0 +1,13 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = false
+	logallrefupdates = true
+[remote "nvim-config"]
+	url = git@gitlab.com:Miesjell/nvim-config.git
+	fetch = +refs/heads/*:refs/remotes/nvim-config/*
+[branch "main"]
+	pushRemote = nvim-config
+	vscode-merge-base = nvim-config/main
+	remote = nvim-config
+	merge = refs/heads/main

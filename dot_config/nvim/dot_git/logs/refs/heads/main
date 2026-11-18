@@ -1,0 +1,30 @@
+0000000000000000000000000000000000000000 2cdb2e11b979a013959916b868ace61d20d97061 Miesjell <michelharms@outlook.com> 1736947769 +0100	commit (initial): Initial commit
+2cdb2e11b979a013959916b868ace61d20d97061 1793953aa453e095aef8dbeed2f1df54fba475ff Miesjell <michelharms@outlook.com> 1736949023 +0100	commit: fix: Changed `keybindings` to `keys`, so <leader>g works for toggle
+1793953aa453e095aef8dbeed2f1df54fba475ff 522ea3416a98fe4db12e743aea35033b7d622da0 Miesjell <michelharms@outlook.com> 1736949119 +0100	commit: fix: Changed keybinding for <leader>gs to <leader>g
+522ea3416a98fe4db12e743aea35033b7d622da0 b328dd146f9b16d0626529f26abaec2e53e169e8 Miesjell <michelharms@outlook.com> 1737067006 +0100	commit: fix(zoxide-plugin): Correct regex pattern for getting path
+b328dd146f9b16d0626529f26abaec2e53e169e8 31b100004d0839d8865885ed5156663cd7772653 Miesjell <michelharms@outlook.com> 1737069322 +0100	commit: feat(noice): Added noice plugin with defaults
+31b100004d0839d8865885ed5156663cd7772653 96e9e083b0860cf9d8028ef56be3177c5054fa23 Miesjell <michelharms@outlook.com> 1737069372 +0100	commit: fix(treesitter): Added regex to treesitter
+96e9e083b0860cf9d8028ef56be3177c5054fa23 c0db7644326f70b17e6996560a8302ebdb3b68f8 Miesjell <michelharms@outlook.com> 1737069413 +0100	commit: fix(conform): Added isort to python
+c0db7644326f70b17e6996560a8302ebdb3b68f8 d59df0f8f3eb3413a04c3e13f201e52e968d016c Miesjell <michelharms@outlook.com> 1737124245 +0100	commit: add(mini.nvim): Dashboard (w ascii pikachu) on nvim open with mini.starter, mini.move, and mini.animate
+d59df0f8f3eb3413a04c3e13f201e52e968d016c 90e35b93ef427e99c1cd82520746d1ca197fd902 Miesjell <michelharms@outlook.com> 1737143832 +0100	commit: add(themes): Added rose-pine, fluoromachine, and catppuccin themes
+90e35b93ef427e99c1cd82520746d1ca197fd902 ea28daaf7537ae9414727b3ea1a058fa3457e03a Miesjell <michelharms@outlook.com> 1737143871 +0100	commit: fix(theme): Changed default theme to rose-pine
+ea28daaf7537ae9414727b3ea1a058fa3457e03a ffad38f32f14ffe0627ada3665d746efbe6c16ba Miesjell <michelharms@outlook.com> 1737158362 +0100	commit: feat(themes): Added Themify plugin, deleted themes folder
+ffad38f32f14ffe0627ada3665d746efbe6c16ba f88d6e9a6127decf534b9830e1d2203283242945 Miesjell <michelharms@outlook.com> 1737158441 +0100	commit: feat(dashboard): Added items for keybindings and Themify
+f88d6e9a6127decf534b9830e1d2203283242945 8aab5e07ad5cbfbbe59bfab9957250937561c2d3 Miesjell <michelharms@outlook.com> 1737385437 +0100	commit: chore(.gitignore): Added .git/
+8aab5e07ad5cbfbbe59bfab9957250937561c2d3 e25f7da2073182d0dabb81c6fc43250d6dad6696 Miesjell <michelharms@outlook.com> 1737385509 +0100	commit: refactor(conf): All configuration settings split up into their own file
+e25f7da2073182d0dabb81c6fc43250d6dad6696 da742ff015c21ed7b2afc9e9b70ecf3413dd8db3 Miesjell <michelharms@outlook.com> 1737385567 +0100	commit (amend): refactor(conf): All configuration settings split up into their own file
+da742ff015c21ed7b2afc9e9b70ecf3413dd8db3 cc34aad6eedd2dfcdb9998562a15ad548e4eafba Miesjell <michelharms@outlook.com> 1737385608 +0100	commit: chore(animation): Removed mini.animate, didn't like
+cc34aad6eedd2dfcdb9998562a15ad548e4eafba 321b7c94eb9d88f2aa620e7cb109cc45479469fc Miesjell <michelharms@outlook.com> 1737385803 +0100	commit: feat(telescope): Added hidden files to find_files (doesnt show .gitignore)
+321b7c94eb9d88f2aa620e7cb109cc45479469fc 4b4dc145e49bf3f34fc4785a4dfdcecd01deb3e2 Miesjell <michelharms@outlook.com> 1737385945 +0100	commit: style(init): Small style fix
+4b4dc145e49bf3f34fc4785a4dfdcecd01deb3e2 28a5c785e9f3b114c43d97822cf1855e891b464f Miesjell <michelharms@outlook.com> 1763497985 +0100	commit: feat: update config (been a while)
+28a5c785e9f3b114c43d97822cf1855e891b464f b60c265e34ae5249a88737b7643787f46cbe8533 Miesjell <michelharms@outlook.com> 1763500218 +0100	commit: docs: update README for improved clarity and structure
+b60c265e34ae5249a88737b7643787f46cbe8533 aa80b29f75c064191027d82d4bdf372c82d489f2 Miesjell <michelharms@outlook.com> 1763500378 +0100	commit (amend): docs: update README for improved clarity and structure
+aa80b29f75c064191027d82d4bdf372c82d489f2 28a5c785e9f3b114c43d97822cf1855e891b464f Miesjell <michelharms@outlook.com> 1763500620 +0100	rebase (finish): refs/heads/main onto 28a5c785e9f3b114c43d97822cf1855e891b464f
+28a5c785e9f3b114c43d97822cf1855e891b464f 9f00e8832b3155cedf332c7e31584832f2af6684 Miesjell <michelharms@outlook.com> 1763500627 +0100	pull: Fast-forward
+9f00e8832b3155cedf332c7e31584832f2af6684 3b1fde39a9cc0cc3414e173f96cdda7bbee3c141 Miesjell <michelharms@outlook.com> 1767554155 +0100	commit: add latex lsp
+3b1fde39a9cc0cc3414e173f96cdda7bbee3c141 741149feed1470498d44601076ce81fa664511fc Miesjell <michelharms@outlook.com> 1767554253 +0100	commit: add plugin to resize nicely
+741149feed1470498d44601076ce81fa664511fc cb05714f90cba8d6c6b27f4378806fea6b948c73 Miesjell <michelharms@outlook.com> 1767554303 +0100	commit: add plugin to view pdfs in nvim
+cb05714f90cba8d6c6b27f4378806fea6b948c73 48610a692220a593e33cafd18d43b17c78f5f175 Miesjell <michelharms@outlook.com> 1767554333 +0100	commit: add plugin to work with latex files easily
+48610a692220a593e33cafd18d43b17c78f5f175 ce27f5d211a45f8883faa89b98b0a7daafc6c320 Miesjell <michelharms@outlook.com> 1767554351 +0100	commit: add plugin for focus mode
+ce27f5d211a45f8883faa89b98b0a7daafc6c320 f777684e009f97f94bd2ff4b2bd7c4e57eeb6870 Miesjell <michelharms@outlook.com> 1767554365 +0100	commit: Update readme
+f777684e009f97f94bd2ff4b2bd7c4e57eeb6870 9c72d8345985fb0058559a5de38de0ea128dad6b Miesjell <michelharms@outlook.com> 1794949503 +0100	commit: Update cause apparently its been a while

@@ -1,0 +1,129 @@
+// ~/.config/zellij/config.kdl
+// Target: zellij 0.46. Same file on CachyOS and the Ubuntu VDI.
+// Validate after edits with: zellij setup --check
+//
+// Model
+//   Zellij always rests in LOCKED mode. Every key goes to the app (nvim,
+//   shell) except the unlock key and a small set of Alt shortcuts.
+//   Ctrl g unlocks one action, then zellij drops back to locked.
+//
+//   Ctrl g  p ...   pane mode   (n new, r right, d down, x close, f fullscreen, w floats)
+//   Ctrl g  t ...   tab mode    (n new, r rename, 1-9 jump, x close)
+//   Ctrl g  r ...   resize mode (hjkl grow, HJKL shrink)
+//   Ctrl g  m ...   move mode   (hjkl move pane)
+//   Ctrl g  s ...   scroll mode (e open scrollback in $EDITOR, f search, [ ] prompts)
+//   Ctrl g  o ...   session     (d detach, w session manager, c settings)
+//   Esc / Enter     back to locked
+//
+//   Always on in locked mode (preset):
+//   Alt h/j/k/l     focus pane (h/l cross into neighbouring tab at the edge)
+//   Alt n           new pane          Alt f      toggle floating panes
+//   Alt = / -       resize            Alt [ / ]  cycle swap layouts
+//   Alt i / o       move tab left/right
+//   Added below:
+//   Alt t           new tab           Alt 1-9    go to tab
+//   Alt z           zoom pane         Alt w      session manager
+//
+//   Forgot a key? The bottom bar always shows the keys for the current mode.
+//   Ctrl g o c opens the settings screen (live theme picker and theme editor).
+
+// ---------- Theme: the only lines to touch for colors ----------
+// Zellij picks the dark or light one based on what Ghostty reports, so
+// flipping the desktop dark/light setting flips Ghostty and zellij together.
+// Built-in names: catppuccin-{latte,frappe,macchiato,mocha}, tokyo-night{,-storm,-light},
+// gruvbox-{dark,light}, kanagawa, nord, dracula, everforest-{dark,light},
+// nightfox/dayfox, solarized-{dark,light}, onedark, ayu-{dark,light,mirage}
+theme_dark "catppuccin-mocha"
+theme_light "catppuccin-latte"
+
+// The only Ctrl key zellij takes from nvim is the unlock key.
+// Ctrl g in nvim only prints file info, so it is a cheap loss.
+// To change it: unlock="Ctrl a" (or any key you never use in nvim).
+keybinds preset="unlock-first" unlock="Ctrl g" secondary="Alt" {
+
+    shared_among "normal" "locked" {
+        bind "Alt t" { NewTab; SwitchToMode "Locked"; }
+        bind "Alt z" { ToggleFocusFullscreen; SwitchToMode "Locked"; }
+        bind "Alt w" {
+            LaunchOrFocusPlugin "session-manager" {
+                floating true
+                move_to_focused_tab true
+            }
+            SwitchToMode "Locked"
+        }
+        bind "Alt 1" { GoToTab 1; SwitchToMode "Locked"; }
+        bind "Alt 2" { GoToTab 2; SwitchToMode "Locked"; }
+        bind "Alt 3" { GoToTab 3; SwitchToMode "Locked"; }
+        bind "Alt 4" { GoToTab 4; SwitchToMode "Locked"; }
+        bind "Alt 5" { GoToTab 5; SwitchToMode "Locked"; }
+        bind "Alt 6" { GoToTab 6; SwitchToMode "Locked"; }
+        bind "Alt 7" { GoToTab 7; SwitchToMode "Locked"; }
+        bind "Alt 8" { GoToTab 8; SwitchToMode "Locked"; }
+        bind "Alt 9" { GoToTab 9; SwitchToMode "Locked"; }
+    }
+
+    // STEP 2 (optional): one set of keys for nvim splits AND zellij panes.
+    // Alt h/j/k/l: if nvim is focused, the key goes to nvim (smart-splits.nvim
+    // moves between nvim windows and hands off to zellij at the edge);
+    // otherwise zellij moves focus. Ctrl h/j/k/l stay untouched, so Ctrl l
+    // still clears the shell.
+    // Needs: the .wasm file below and smart-splits.nvim mapped to <A-hjkl>.
+    // Enable: delete the "/-" in front of the next line. ("/-" comments out a whole KDL node.)
+    /-shared_among "normal" "locked" {
+        bind "Alt h" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "move_focus_or_tab"; payload "left"; move_mod "alt";
+            };
+        }
+        bind "Alt j" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "move_focus"; payload "down"; move_mod "alt";
+            };
+        }
+        bind "Alt k" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "move_focus"; payload "up"; move_mod "alt";
+            };
+        }
+        bind "Alt l" {
+            MessagePlugin "file:~/.config/zellij/plugins/vim-zellij-navigator.wasm" {
+                name "move_focus_or_tab"; payload "right"; move_mod "alt";
+            };
+        }
+    }
+}
+
+// ---------- UI ----------
+// "default" = tab bar on top + status bar with key hints at the bottom (the keybind helper).
+// Switch to "compact" once the keys are in your fingers: one line instead of two.
+default_layout "default"
+show_startup_tips false
+on_quit "ask_detach"         // quitting preselects detach, so a slip keeps the session
+
+// ---------- Shell ----------
+// Overrides $SHELL, so panes run fish on the VDI even though the login shell is bash.
+// Note: fish does not read ~/.bashrc. Put PATH etc. in ~/.config/fish/config.fish.
+default_shell "fish"
+
+// ---------- Scrollback ----------
+scroll_buffer_size 50000
+// Ctrl g s e opens the scrollback in $EDITOR. Export EDITOR=nvim in your shell rc.
+
+// ---------- Clipboard ----------
+// Mouse-select in a pane copies via OSC 52; Ghostty puts it on the system clipboard,
+// and on the VDI Horizon carries it to Windows. Shift+drag bypasses zellij and uses
+// Ghostty's own selection instead.
+// Only needed in a terminal without OSC 52 (e.g. GNOME Terminal):
+// copy_command "xclip -selection clipboard"
+copy_on_select true
+
+// ---------- Sessions ----------
+// Sessions survive a closed terminal or a Horizon disconnect as long as the VM lives.
+// Serialization lets `zellij attach` resurrect layout + cwd after a reboot.
+session_serialization true
+serialize_pane_viewport true
+scrollback_lines_to_serialize 2000
+
+// ---------- Hardening (shared corporate box) ----------
+web_server false
+web_sharing "disabled"
